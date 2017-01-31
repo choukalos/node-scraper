@@ -20,5 +20,7 @@ echo "--Testing Batch URL Lookup"
 curl -XPOST -H "Content-Type: application/json" -d '{"urls": ["magento.com","google.com","stackoverflow.com/questions"]}' http://localhost:3000/detect/batch/url/
 echo "--Testing Batch Detect Magento Major.Minor version"
 curl -XPOST -H "Content-Type: application/json" -d '{"hostnames": ["hellyhanson.com","oliversweeny.com","pumpunderwear.com"]}' http://localhost:3000/detect/batch/magentoversion/ 
+echo "--Testing Batch Detect Magento Mode"
+curl -XPOST -H "Content-Type: application/json" -d '{"hostnames": ["oliversweeny.com","pumpunderwear.com","mage2.dev","pi.choukalos.org"]}' http://localhost:3000/detect/batch/magentomode/
 echo "Test finished"
 

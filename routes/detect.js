@@ -45,4 +45,11 @@ router.post('/batch/magentoversion',function(req,res,next){
 	});
 });
 
+router.post('/batch/magentomode',function(req,res,next){
+	detectcode.BatchMode(req.body.hostnames,function(err,rc) {
+		console.log("Post to Detect Batch Magento Mode:");
+		res.end(JSON.stringify(rc),null,3);
+	});
+});
+
 module.exports = router;
