@@ -18,5 +18,7 @@ echo "--Testing Batch GEOIP Lookup"
 curl -XPOST -H "Content-Type: application/json" -d '{"hostnames": ["magento.com","google.com","wordpress.com","raspberrypi.org"] }' http://localhost:3000/detect/batch/geoip/
 echo "--Testing Batch URL Lookup"
 curl -XPOST -H "Content-Type: application/json" -d '{"urls": ["magento.com","google.com","stackoverflow.com/questions"]}' http://localhost:3000/detect/batch/url/
+echo "--Testing Batch Detect Magento Major.Minor version"
+curl -XPOST -H "Content-Type: application/json" -d '{"hostnames": ["hellyhanson.com","oliversweeny.com","pumpunderwear.com"]}' http://localhost:3000/detect/batch/magentoversion/ 
 echo "Test finished"
 

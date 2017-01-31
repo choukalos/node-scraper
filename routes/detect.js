@@ -36,5 +36,13 @@ router.post('/batch/url',function(req,res,next){
 		console.log("Post to Detect Batch URLs:");
 		res.end(JSON.stringify(rc),null,3);	
 	});
-})
+});
+
+router.post('/batch/magentoversion',function(req,res,next){
+	detectcode.BatchVersion(req.body.hostnames,function(err,rc) {
+		console.log("Post to Detect Batch Magento Versions:");
+		res.end(JSON.stringify(rc),null,3);
+	});
+});
+
 module.exports = router;
