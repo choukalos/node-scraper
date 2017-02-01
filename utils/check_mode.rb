@@ -3,7 +3,7 @@ require 'rubygems'
 require 'json'
 
 # Global Variables
-BATCHSIZE = 5
+BATCHSIZE = 10
 CURLLOC   = "http://localhost:3000/detect/batch/magentomode/"
 CURLHEAD  = '-H "Content-Type: application/json"' 
 
@@ -28,10 +28,18 @@ iterations= numhosts / BATCHSIZE
   curlcmd = "curl -s #{CURLHEAD} \'#{payload}\' #{CURLLOC}"
   #puts "CMD:  #{curlcmd}"
   rc   = `#{curlcmd}`
-  data = JSON.parse(rc)
-  data.each do |x|
-    puts "#{x["hostname"]},#{x["mode"]}"
+  # Catch exceptions if JSON parse fails
+  begin
+    data = JSON.parse(rc)
+    data.each do |x|
+      puts "#{x["hostname"]},#{x["mode"]}"
+    end
+  rescue => err
+    dohosts.each do |x|
+      puts "#{x},"
+    end
   end
+  
 end
 
 
