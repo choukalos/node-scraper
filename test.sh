@@ -22,5 +22,8 @@ echo "--Testing Batch Detect Magento Major.Minor version"
 curl -XPOST -H "Content-Type: application/json" -d '{"hostnames": ["hellyhanson.com","oliversweeny.com","pumpunderwear.com"]}' http://localhost:3000/detect/batch/magentoversion/ 
 echo "--Testing Batch Detect Magento Mode"
 curl -XPOST -H "Content-Type: application/json" -d '{"hostnames": ["oliversweeny.com","pumpunderwear.com","mage2.dev","pi.choukalos.org"]}' http://localhost:3000/detect/batch/magentomode/
+echo "--Testing Batch performance page load"
+curl -XPOST -H "Content-Type: application/json" -d '{"urls":["http://google.com","http://magento.com","http://hellyhanson.com"]}' http://localhost:3000/performance/pageload
 echo "Test finished"
+
 
